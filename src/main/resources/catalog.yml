@@ -1,0 +1,13 @@
+services:
+- id: 4a7bcc99-5bcc-46b7-a888-d0d03bd42a24
+  name: p-tibero
+  description: Tibero service for application development and testing
+  tags:
+    - tibero
+    - relational
+  bindable: true
+  plans:
+  - id: e1162612-8883-4cc5-8a06-44f97bd54ea1
+    name: basic
+    description: Shared database server (schema service)
+

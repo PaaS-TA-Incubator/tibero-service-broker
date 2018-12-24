@@ -1,0 +1,43 @@
+buildscript {
+  repositories {
+    maven { url "http://repo.spring.io/libs-snapshot" }
+    mavenLocal()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:0.5.0.M6")
+  }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+  baseName = 'cf-tibero-broker'
+  version = '0.1.0'
+}
+
+repositories {
+  mavenCentral()
+  maven { url "http://repo.spring.io/libs-snapshot" }
+}
+
+dependencies {
+  compile files('./src/main/libs/tibero5-jdbc.jar')
+  compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.1.7'
+  compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '0.5.0.M6'
+  compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '0.5.0.M6'
+  compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '0.5.0.M6'
+
+  compile group: 'org.springframework', name: 'spring-jdbc', version: '4.0.0.M3'
+  compile group: 'org.yaml', name: 'snakeyaml', version: '1.13'
+  runtime "org.codehaus.jackson:jackson-mapper-asl:1.9.12"
+  runtime "org.apache.tomcat:tomcat-jdbc:7.0.47"
+
+  testCompile "junit:junit:4.11"
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '1.9'
+}

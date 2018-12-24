@@ -1,0 +1,12 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: cf-tibero-broker
+  datasource:
+    url: jdbc:tibero:thin:@localhost:8629:tibero
+    username: sys
+    password: tibero
+    driverClassName: com.tmax.tibero.jdbc.TbDriver
+  main:
+    show_banner: false
